@@ -144,18 +144,18 @@ const AllProductsPage = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isSortAscending, setIsSortAscending] = useState(true);
 
-  const [minPrice, setMinPrice] = useState("");
-  const [maxPrice, setMaxPrice] = useState("");
+  const [minPrice, setMinPrice] = useState(undefined);
+  const [maxPrice, setMaxPrice] = useState(undefined);
 
   const [openDialog, setOpenDialog] = useState(false);
   const [page, setPage] = useState(1);
   const [products, setProducts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState(undefined);
 
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedCompany, setSelectedCompany] = useState("All");
-  const [selectedRating, setSelectedRating] = useState("");
-  const [selectedAvailability, setSelectedAvailability] = useState("");
+  const [selectedRating, setSelectedRating] = useState(undefined);
+  const [selectedAvailability, setSelectedAvailability] = useState(undefined);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   //TODO advanced search

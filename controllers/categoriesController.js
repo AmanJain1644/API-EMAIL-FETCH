@@ -1,15 +1,12 @@
-const axios = require('axios');
-const API_BASE_URL = 'https://json-server.bytexl.app';
+const { Category } = require('../models/models');
 
-exports.getCategories = async (req, res) => {
-  try {
-    // console.log('Fetching categories...'); // Logging to check if the request reaches the controller
-    const response = await axios.get(`${API_BASE_URL}/categories`);
-    // console.log('Raw response:', response); // Logging to see the full raw response
-    // console.log('Categories fetched successfully:', response.data); // Logging to see the fetched data
-    res.json(response.data);
-  } catch (error) {
-    // console.error('Error fetching categories:', error); // Logging the error
-    res.status(500).json({ error: 'Error fetching categories' });
-  }
+exports.getCategories = (req, res) => {
+    Category.find({})
+        .then((categories) => {
+            res.json(categories); // Ensure categories are passed here
+        })
+        .catch((err) => {
+            console.error(err); // Log to the console for debugging
+            res.status(500).json({ error: 'Error fetching categories' });
+        });
 };
