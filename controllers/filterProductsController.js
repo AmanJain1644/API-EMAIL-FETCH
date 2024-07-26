@@ -15,11 +15,11 @@ exports.filterProducts = async (req,res)=>{
   } = req.query;
   const query = {};
 
-  if (selectedCategory!=='All' && selectedCategory!==undefined) {
+  if (selectedCategory!=='All' && selectedCategory) {
     query.category = selectedCategory;
   }
 
-  if (selectedCompany!=='All' && selectedCompany!==undefined) {
+  if (selectedCompany!=='All' && selectedCompany) {
     query.company = selectedCompany;
   }
 
@@ -27,8 +27,11 @@ exports.filterProducts = async (req,res)=>{
     query.rating = { $gte: selectedRating };
   }
 
-  if (minPrice && maxPrice) {
-    query.price = { $gte: minPrice, $lte: maxPrice };
+  if (minPrice) {
+    query.price = { $gte: minPrice};
+  }
+  if (maxPrice) {
+    query.price = {$lte: maxPrice };
   }
 
 
@@ -42,8 +45,10 @@ exports.filterProducts = async (req,res)=>{
 
   const sortOrder = isSortAscending==='true' ? 1 : -1;
   let sortObject = {};
-
-  if (sortBy) {
+  if(sortBy==='Name'){
+    sortObject['productName'] = sortOrder;        
+  }
+  else if (sortBy) {
     sortObject[sortBy.toLowerCase()] = sortOrder;
   }
 

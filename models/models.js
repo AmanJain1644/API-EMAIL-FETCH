@@ -18,7 +18,8 @@ const productsSchema = new Schema({
     discount:Number,
     price:Number,
     productName:String,
-    rating:Number
+    rating:Number,
+    id:Number
 });
 
 

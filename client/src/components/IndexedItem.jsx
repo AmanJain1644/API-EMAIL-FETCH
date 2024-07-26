@@ -19,7 +19,7 @@ const IndexedItem = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`https://json-server.bytexl.app/products`);
+        const response = await fetch(`/api/filterProducts`);
         if (!response.ok) {
           throw new Error('Failed to fetch products');
         }
