@@ -99,10 +99,11 @@ const DrawerContent = styled(Drawer)(({ theme }) => ({
     [theme.breakpoints.down('xs')]: {
       marginTop: 0, // No shift on mobile devices
     },
-    backdropFilter: 'blur(10px)', // Add this line for background blur
-    boxShadow: 'none', // Ensure no shadow is applied
+    backdropFilter: 'blur(10px)',
+    boxShadow: 'none',
   },
 }));
+
 const MainContent = styled("div")(({ theme, sidebarOpen }) => ({
   flexGrow: 1,
   padding: theme.spacing(3),

@@ -15,6 +15,7 @@ import { CssBaseline } from '@mui/material';
 
 import AllProductsPage from "./components/AllProductsPage";
 import IndexedItem from "./components/IndexedItem";
+import AddProductPage from './components/AddProductPage'; 
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
           </>
           } 
         />
+        <Route path="/products/insert" element={<AddProductPage />} />
       </Routes>
     </BrowserRouter>
   );
